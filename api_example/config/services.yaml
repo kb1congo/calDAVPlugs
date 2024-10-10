@@ -1,0 +1,52 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    jwt.api.key: "%env(JWT_SECRET_KEY)%"
+    jwt.encoder: "%env(JWT_ENCODER)%"
+    key.cloak.url: "%env(KEY_CLOAK_URL)%"
+    kafka.url: "%env(KAFKA_URL)%"
+    baikal.srv.url: "%env(BAIKAL_SRV_URL)%"
+    cloak.grant.type: "%env(CLOAK_GRANT_TYPE)%"
+    cloak.srv.url: "%env(CLOAK_SCOPE)%"
+    cloak.username: "%env(CLOAK_USERNAME)%"
+    cloak.password: "%env(CLOAK_PASSWORD)%"
+    cloak.client.id: "%env(CLOAK_CLIENT_ID)%"
+    cloak.client.secret: "%env(CLOAK_CLIENT_SECRET)%"
+    google.client.id: "%env(GOOGLE_CLIENT_ID)%"
+    google.client.secret: "%env(GOOGLE_CLIENT_SECRET)%"
+    google.scope: "%env(GOOGLE_SCOPE)%"
+    google.redirect.uri: "%env(GOOGLE_REDIRECT_URI)%"
+    google.srv.url: "%env(GOOGLE_SRV_URL)%"
+    google.caldav.url: "%env(GOOGLE_CALDAV_URL)%"
+    google.oauth.callback.url: "%env(GOOGLE_OAUTH_CALLBACK_URL)%"
+    outlook.client.id: "%env(OUTLOOK_CLIENT_ID)%"
+    outlook.client.secret: "%env(OUTLOOK_CLIENT_SECRET)%"
+    outlook.client.tenant: "%env(OUTLOOK_CLIENT_TENANT)%"
+    outlook.scope: "%env(OUTLOOK_SCOPE)%"
+    outlook.redirect.uri: "%env(OUTLOOK_REDIRECT_URI)%"
+    outlook.srv.url: "%env(OUTLOOK_SRV_URL)%"
+    outlook.login.url: "%env(OUTLOOK_LOGIN_URL)%"
+    outlook.oauth.callback.url: "%env(OUTLOOK_OAUTH_CALLBACK_URL)%"
+    bluemind.srv.url: "%env(BLUEMIND_SRV_URL)%"
+    certificate.path: "%kernel.project_dir%/config/certs/cacert.pem"
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
