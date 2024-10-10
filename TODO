@@ -1,0 +1,37 @@
+Voici la version corrigée en français ainsi que la traduction en anglais de ta todo list :
+
+### En français
+### from caldav-plugs
+- [ ] Écrire des tests unitaires pour Google et Baikal
+- [ ] Ajouter le var-dumper de Symfony dans la section dev
+- [ ] Changer le nom de la classe abstraite Plateform en Factory
+- [ ] Changer le nom de PlateformUserInterface en CredentialsInterface
+- [ ] Changer le nom des classes GoogleUser, Office365User, ZimbraTokenUser en TokenCredentials
+- [ ] Changer le nom des classes BaikalUser, ZimbraUser en BasicCredentials
+- [ ] Ajouter une classe OAuthUrl
+- [ ] Dois-je ajouter un validateur Symfony pour calendar_id afin de le rendre requis ?
+- [ ] Penser à ajouter un validateur Symfony dans la classe pour valider credentialsUser
+- [ ] Changer la signature de calendarCalDAV
+- [ ] Penser à ajouter un attribut cTag à un EventCalendar
+- [ ] Ajouter dans l'interface les méthodes statiques protégées parseCredentials et parseAttends
+- [ ] Ajouter une classe abstraite OAuth, fille de Factory et mère de Google et Outlook, avec les méthodes abstraites getCodeUrl et callBack
+- [ ] Faire les vérifications nécessaires lors de l'expiration du token, au cas où il y aurait une route pour dire à Google que le token est mort
+- [ ] Google donne l'URL de l'événement, donc voir si c'est possible de l'ajouter à nos événements
+- [ ] Utiliser les fonctions parseEvent et parseCalendar pour unifier les sorties des connecteurs
+- [ ] Vérifier si nous devons ajouter un paramètre location au calendrier, je ne pense pas, c'est plus pour les événements
+- [ ] Dans eventCalDAV, ajouter la location et le type d'événement : en ligne ou présentiel
+- [ ] Mieux gérer le système de récurrence d'un événement en lecture et en écriture
+- [ ] Écrire plus intelligemment les méthodes update pour ne considérer finalement que les champs utiles
+
+### from example
+- [ ] Supprimer la librairie SimpleCalDAV
+- [ ] Mettre Httptools.php et JwtTool.php dans le répertoire service
+- [ ] Supprimer kafka.php
+- [ ] Supprimer BasicCalDAVController.php et GoogleCalDAVController.php
+- [ ] Ajouter les classes CalendarController et EventController
+- [ ] Ajouter docker-compose.yaml et Dockerfile dans .gitignore
+
+### Questions:
++ À quoi correspond `changeKey` de l'objet calendar de Microsoft ?
++ L'objet calendar de Microsoft a-t-il besoin de l'email du propriétaire ?
++ Vérifier le sens de la variable order dans le calendarCalDAV
